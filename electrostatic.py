@@ -107,7 +107,7 @@ def electrostatics_interaction(protein, ligand):
 
     for pro_pos in range(pro_charge_positive.shape[0]):
         for lig_neg in range(lig_charge_negative.shape[0]):
-            if norm(pro_charge_positive.iloc[pro_pos][['X','Y','Z']] - lig_charge_negative.iloc[lig_neg][['X','Y','Z']]) < 5:
+            if norm(pro_charge_positive.iloc[pro_pos][['X','Y','Z']] - lig_charge_negative.iloc[lig_neg][['X','Y','Z']]) < 5.5:
                 Residue.append(pro_charge_positive.iloc[pro_pos]['Res'])
                 Number.append(pro_charge_positive.iloc[pro_pos]['Num'])
                 Chain.append(pro_charge_positive.iloc[pro_pos]['Chain'])
@@ -123,7 +123,7 @@ def electrostatics_interaction(protein, ligand):
 
     for pro_neg in range(pro_charge_negative.shape[0]):
         for lig_pos in range(lig_charge_positive.shape[0]):
-            if norm(pro_charge_negative.iloc[pro_neg][['X','Y','Z']] - lig_charge_positive.iloc[lig_pos][['X','Y','Z']]) < 5:
+            if norm(pro_charge_negative.iloc[pro_neg][['X','Y','Z']] - lig_charge_positive.iloc[lig_pos][['X','Y','Z']]) < 5.5:
                 Residue.append(pro_charge_negative.iloc[pro_neg]['Res'])
                 Number.append(pro_charge_negative.iloc[pro_neg]['Num'])
                 Chain.append(pro_charge_negative.iloc[pro_neg]['Chain'])
