@@ -59,12 +59,12 @@ Here are some geometric conditions for interactions between protein and ligands:
 ### π-π interaction
 - PLIpp only takes into account of 6-membered aromatic rings
 - Aromatic residues: Phe, Tyr, Trp
-- π-π sandwich stacking: two rings are parallel and the distance between two centers is less than 5Å
-- π-π T-shaped stacking: two normal vectors of two rings are perpendicular and the distance between two centers is less than 5Å
+- π-π sandwich stacking: two rings are parallel and the distance between two centers is less than 5.5Å
+- π-π T-shaped stacking: two normal vectors of two rings are perpendicular and the distance between two centers is less than 5.5Å
 ### π-cation interaction
 - Positively-charged residues: Lys, Arg, His
 - Positively-charged functional groups in the ligand: guanidine, ammonium, sulfonium
-- π-cation interaction: angle between vector formed by cation and aromatic centers and aromatic plane is greater than 45° and the distance between cation and aromatic center is less than 5Å
+- π-cation interaction: angle between vector formed by cation and aromatic centers and aromatic plane is greater than 45° and the distance between cation and aromatic center is less than 5.5Å
 ### Hydrophobic interaction
 - PLIpp only takes into account of carbon atoms which are not directly linked with any other heteroatoms, such as: nitrogen, oxygen,... 
 - The distance between two carbon atoms is from 3.3 to 4.0Å
@@ -73,7 +73,7 @@ Here are some geometric conditions for interactions between protein and ligands:
 - Negatively-charged residues: Glu, Asp
 - Positively-charged functional groups in the ligand: guanidine, ammonium, sulfonium
 - Negatively-charged functional groups in the ligand: carboxylate, phosphate, sulfate
-- The distance between positively-charged and negatively-charged species is less than 5Å
+- The distance between positively-charged and negatively-charged species is less than 5.5Å
 ### Hydrogen bond
 - The angle of (Donor - Hydrogen - Acceptor) is greater than 130°
 - The distance between HBA and HBD is from 2.5 to 3.8Å
@@ -97,7 +97,7 @@ Here are some geometric conditions for interactions between protein and ligands:
 || Hydrogen bond | Lys581, Glu627, val629 ||
 || Water bridge |Gln626, Ser633  ||
 | 3DY7| Hydrophobic | Leu118 |Leu118, Phe209|
-|| Pi-pi stack | Phe209 (T-shaped) ||
+|| Pi-pi stack | Phe209 (T-shaped) |Phe209 (T-shaped)|
 || Hydrogen bond | Gly77, Asn78, Glu144 |Asn78, Gly80, Lys97, Met143, Glu144|
 ||  | Met146, Ser150, Ser194 |Met146, Ser150, Lys192, Ser212|
 || Electrostatic |Lys97, Lys192 |Lys97, Lys192, Asp 208|
