@@ -1,0 +1,9 @@
+name: PLIpp-env
+channels:
+  - conda-forge
+  - anaconda
+  - defaults
+dependencies:
+  - pandas==2.2.2
+  - numpy==1.26.4
+  - scipy==1.13.1
