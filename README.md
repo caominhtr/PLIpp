@@ -9,11 +9,10 @@ This python project aims to predict the Interaction between protein and ligand b
 Adasme, M. et al. PLIP 2021: expanding the scope of the protein-ligand interaction profiler to DNA and RNA. Nucl. Acids Res. (05 May 2021), gkab294. doi: 10.1093/nar/gkab294
 
 ## Requirements
-
+This code was tested in Python 3.12.8.
 ```
-pandas==2.2.2
-numpy==1.26.4
-scipy==1.13.1
+conda env create -f PLIpp-env.yml
+conda activate PLIpp-env
 ```
 
 ## Running PLIpp
