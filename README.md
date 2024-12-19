@@ -85,3 +85,18 @@ Here are some geometric conditions for interactions between protein and ligands:
 - PLIpp only considers Cl, Br, I to make halogen bond
 - The angle of (Halogen donor - Halogen - Halogen acceptor) is greater than 168°
 
+## Comparison with PLIP
+
+|PDB ID | Feature  | PLIP | PLIpp | 
+|--| ------------ | --- | ------------|
+| 6XJK| Hydrophobic |  Leu551, Ile 559, Phe628, Leu680|Leu551, Ile 559, Phe628, Leu680|
+|| Cation-pi | Lys581  |Lys581|
+|| Pi-pi stack |  |Phe628 (Sandwich)|
+|| Hydrogen bond | Lys581, Glu627, val629 ||
+|| Water bridge |Gln626, Ser633  ||
+| 3DY7| Hydrophobic | Leu118 |Leu118, Phe209|
+|| Pi-pi stack | Phe209 (T-shaped) ||
+|| Hydrogen bond | Gly77, Asn78, Glu144 |Asn78, Gly80, Lys97, Met143, Glu144|
+||  | Met146, Ser150, Ser194 |Met146, Ser150, Lys192, Ser212|
+|| Electrostatic |Lys97, Lys192 |Lys97, Lys192, Asp 208|
+|| Halogen bond |Val127 |Val127|
