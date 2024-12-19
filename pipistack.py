@@ -117,9 +117,9 @@ def perpendicular (matrix_1, matrix_2):
         for j in range(4):
             vect1 = np.cross(matrix_1[i] - matrix_1[i+1], matrix_1[i] - matrix_1[i+2])
             vect2 = np.cross(matrix_2[j] - matrix_2[j+1], matrix_2[j] - matrix_2[j+2])
-            perpen = np.append(perpen,np.dot(vect1, vect2))
+            perpen = np.append(perpen,cosine(vect1, vect2))
 
-    B = np.sum((perpen > -0.2) & (perpen < 0.2)) / len(perpen)
+    B = np.sum((perpen > -0.35) & (perpen < 0.35)) / len(perpen)
 
     if B > 0.7:
         return True
@@ -201,7 +201,7 @@ def pi_pi_sandwich_stack(matrix_1, matrix_2):
     center_2 = sum(matrix_2) / len(matrix_2)
     normal_vector = center_1 - center_2
    
-    if parallel(matrix_1, matrix_2) and np.linalg.norm(normal_vector) < 5:
+    if parallel(matrix_1, matrix_2) and np.linalg.norm(normal_vector) < 5.5:
         return True
     else:
         return False
@@ -211,7 +211,7 @@ def pi_pi_Tshaped_stack(matrix_1, matrix_2):
     center_2 = sum(matrix_2) / len(matrix_2)
     normal_vector = center_1 - center_2 
 
-    if perpendicular(matrix_1, matrix_2) and np.linalg.norm(normal_vector) < 5:
+    if perpendicular(matrix_1, matrix_2) and np.linalg.norm(normal_vector) < 5.5:
             return True
     else:
         return False
@@ -305,7 +305,7 @@ def pi_pi_interaction(protein, ligand):
             
             num =  np.sum((np.array(cation_pi_angle) < 0.707) & (np.array(cation_pi_angle) > -0.707))
 
-            if R < 5 and num >= 4:
+            if R < 5.5 and num >= 4:
                 aro_ligand_res = ligand[ligand['X'] == aro_ligand.iloc[i*6].iloc[0]].Res.values[0]
                 aro_ligand_desc = ligand[ligand['X'] == aro_ligand.iloc[i*6].iloc[0]].Desc.values[0]
                 aro_ligand_chain = ligand[ligand['X'] == aro_ligand.iloc[i*6].iloc[0]].Chain.values[0]
@@ -344,7 +344,7 @@ def pi_pi_interaction(protein, ligand):
             
             num =  np.sum((np.array(cation_pi_angle) < 0.707) & (np.array(cation_pi_angle) > -0.707))
 
-            if R < 5 and num >= 4:
+            if R < 5.5 and num >= 4:
                 aro_protein_res = protein[protein['X'] == aro.iloc[0].iloc[0]].Res.values[0]
                 aro_protein_num = protein[protein['X'] == aro.iloc[0].iloc[0]].Num.values[0]
                 aro_protein_chain = protein[protein['X'] == aro.iloc[0].iloc[0]].Chain.values[0]
