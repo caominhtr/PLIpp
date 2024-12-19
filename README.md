@@ -28,7 +28,8 @@ My suggestion is to use free software ChimeraX with Add Hydrogen option:
 ### Step 2: Fix errors in pdb file (if any)
 To find any errors in pdb file, use:
 ```
-python3 extractfile.py 6xjk.pdb 
+python3 extractfile.py 6xjk.pdb
+python3 extractfile.py 3dy7.pdb 
 ```
 The most common error with the pdb file is the white space between some columns, for example:
 
@@ -39,14 +40,16 @@ If there are errors, manually fix it before running PLIpp
 ### Step 3: Find residues in the binding site
 To find residues involved in the interactions with the ligand, use:
 ```
-python3 bindingsite.py 6xjk.pdb 
+python3 bindingsite.py 6xjk.pdb
+python3 bindingsite.py 3dy7.pdb 
 ```
 The output is in csv file format named: "_protein_activesite.csv"
 
 ### Step 4: Find a ligand pharmacophore
 To find the ligand pharmacophore, use:
 ```
-python3 pharmacophore.py 6xjk.pdb 
+python3 pharmacophore.py 6xjk.pdb
+python3 pharmacophore.py 3dy7.pdb
 ```
 The output is in csv file format named:"_pharmacophore.csv"
 
