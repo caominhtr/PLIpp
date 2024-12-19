@@ -11,6 +11,8 @@ Adasme, M. et al. PLIP 2021: expanding the scope of the protein-ligand interacti
 ## Requirements
 This code was tested in Python 3.12.8.
 ```
+git clone https://github.com/caominhtr/PLIpp.git
+cd PLIpp
 conda env create -f PLIpp-env.yml
 conda activate PLIpp-env
 ```
