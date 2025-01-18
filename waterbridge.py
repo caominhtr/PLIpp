@@ -174,7 +174,7 @@ def water_bridge_interaction(protein, ligand, water):
                         
                         # print(f'Protein (Donor): {Prores} {Pronum}{Prochain}, Ligand (Acceptor): {liganddesc} chain {ligandchain}, Water (Donor): HOH{Waternum}')
 
-    # Case 2: Protein (D_1) - Protein(H_1) - Water (A_2) - Water(H_3) - Ligand (D_3)
+    # Case 2: Protein (D_1) - Protein(H_1) - Water (A_2) - Ligand (H_3) - Ligand (D_3)
     for i in range(len(D1)):
         for j in range(len(D3)):
             for k in range(len(A2)):
