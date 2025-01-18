@@ -73,10 +73,11 @@ def halogen_bond_interaction(protein, ligand):
     for i in range(halogen.shape[0]):
         for j in range(halogen_donor.shape[0]):
             for k in range(halogen_acceptor.shape[0]):
-                length_bond = norm(halogen.iloc[i] - halogen_donor.iloc[j])
+                length_bond_halogen = norm(halogen.iloc[i] - halogen_donor.iloc[j])
+                length_bond = norm(halogen.iloc[i] - halogen_acceptor.iloc[k])
                 angle = cosine(halogen.iloc[i]-halogen_donor.iloc[j], halogen.iloc[i] - halogen_acceptor.iloc[k])
 
-                if length_bond < 2.5 and angle <-0.98:
+                if length_bond_halogen < 2.5 and angle <-0.98 and length_bond < 3.8 and length_bond > 2.5:
                     halogen_name = ligand[ligand['X'] == halogen.iloc[i].iloc[0]].Desc.values[0]
                     halogen_donor_name = ligand[ligand['X'] == halogen_donor.iloc[j].iloc[0]].Desc.values[0]
                     halogen_acceptor_res = protein[protein['X'] == halogen_acceptor.iloc[k].iloc[0]].Res.values[0]
