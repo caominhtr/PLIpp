@@ -239,10 +239,8 @@ def water_bridge_interaction(protein, ligand, water):
     df_result['Ligand'] = Lig_res
     df_result['Atom'] = Lig_desc
     df_result['Distance'] = distance
-    df_result = df_result.drop_duplicates()
-    df_result = df_result.reset_index(drop=True, inplace=False)
-
-
+    # df_result = df_result.drop_duplicates()
+    # df_result = df_result.reset_index(drop=True, inplace=False)
 
     columns_ = ['Ligand', 'Atom', 'Chain','Type']
     df_pharmacophore = pd.DataFrame(columns=columns_)
@@ -250,8 +248,8 @@ def water_bridge_interaction(protein, ligand, water):
     df_pharmacophore['Atom'] = Lig_desc
     df_pharmacophore['Chain'] = Lig_chain
     df_pharmacophore['Type'] = Lig_type
-    df_pharmacophore = df_pharmacophore.drop_duplicates()
-    df_pharmacophore = df_pharmacophore.reset_index(drop=True, inplace=False)
+    # df_pharmacophore = df_pharmacophore.drop_duplicates()
+    # df_pharmacophore = df_pharmacophore.reset_index(drop=True, inplace=False)
 
     return(df_result, df_pharmacophore)
 
