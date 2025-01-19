@@ -112,7 +112,7 @@ def parallel (matrix_1, matrix_2):
             vect2 = np.cross(matrix_2[j] - matrix_2[j+1], matrix_2[j] - matrix_2[j+2])
             para = np.append(para, abs(cosine(vect1, vect2)))
 
-    A = np.sum(np.isclose(para, 1, 0.1))/len(para)
+    A = np.sum(np.isclose(para, 1, atol = 0.1))/len(para)
     
     if A > 0.9:
         return True
@@ -127,7 +127,7 @@ def perpendicular (matrix_1, matrix_2):
             vect2 = np.cross(matrix_2[j] - matrix_2[j+1], matrix_2[j] - matrix_2[j+2])
             perpen = np.append(perpen, abs(cosine(vect1, vect2)))
 
-    B = np.sum(np.isclose(perpen, 0, 0.35)) / len(perpen)
+    B = np.sum(np.isclose(perpen, 0, atol = 0.35)) / len(perpen)
 
     if B > 0.9:
         return True
