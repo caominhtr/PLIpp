@@ -105,8 +105,16 @@ def aromatic_protein(protein):
     return aromatic
 
 def parallel (matrix_1, matrix_2):
-    A = np.sum(np.logical_and((matrix_1/matrix_2 > 0.8), (matrix_1/matrix_2 < 1.2)))/18
-    if A > 0.7:
+    para = np.array([])
+    for i in range(4):
+        for j in range(4):
+            vect1 = np.cross(matrix_1[i] - matrix_1[i+1], matrix_1[i] - matrix_1[i+2])
+            vect2 = np.cross(matrix_2[j] - matrix_2[j+1], matrix_2[j] - matrix_2[j+2])
+            para = np.append(para, abs(cosine(vect1, vect2)))
+
+    A = np.sum(np.isclose(para, 1, 0.1))/len(para)
+    
+    if A > 0.9:
         return True
     else:
         return False 
@@ -117,14 +125,15 @@ def perpendicular (matrix_1, matrix_2):
         for j in range(4):
             vect1 = np.cross(matrix_1[i] - matrix_1[i+1], matrix_1[i] - matrix_1[i+2])
             vect2 = np.cross(matrix_2[j] - matrix_2[j+1], matrix_2[j] - matrix_2[j+2])
-            perpen = np.append(perpen,cosine(vect1, vect2))
+            perpen = np.append(perpen, abs(cosine(vect1, vect2)))
 
-    B = np.sum((perpen > -0.35) & (perpen < 0.35)) / len(perpen)
+    B = np.sum(np.isclose(perpen, 0, 0.35)) / len(perpen)
 
-    if B > 0.7:
+    if B > 0.9:
         return True
     else:
         return False
+        
 def charge_ligand(ligand):    
 
     list_carboxylate = []
