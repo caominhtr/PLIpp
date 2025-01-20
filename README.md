@@ -100,5 +100,5 @@ Here are some geometric conditions for interactions between protein and ligands:
 || Pi-pi stack | Phe209 (T-shaped) |Phe209 (T-shaped)|
 || Hydrogen bond | Gly77, Asn78, Glu144 |Asn78, Gly80, Lys97, Met143, Glu144|
 ||  | Met146, Ser150, Ser194 |Met146, Ser150, Lys192, Ser212|
-|| Electrostatic |Lys97, Lys192 |Lys97, Lys192, Asp 208|
+|| Electrostatic |Lys97, Lys192 |Lys97, Lys192|
 || Halogen bond |Val127 |Val127|
