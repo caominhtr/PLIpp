@@ -127,7 +127,7 @@ def perpendicular (matrix_1, matrix_2):
             vect2 = np.cross(matrix_2[j] - matrix_2[j+1], matrix_2[j] - matrix_2[j+2])
             perpen = np.append(perpen, abs(cosine(vect1, vect2)))
 
-    B = np.sum(np.isclose(perpen, 0, atol = 0.35)) / len(perpen)
+    B = np.sum(np.isclose(perpen, 0, atol = 0.71)) / len(perpen)
 
     if B > 0.9:
         return True
