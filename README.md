@@ -111,3 +111,6 @@ Here are some geometric conditions for interactions between protein and ligands:
 | 2OBJ| Hydrophobic |Ala65, Ile104, Leu120, Leu174, Ile185, Asp186 |Val52, Ala65, Ile104, Leu120, Leu174, Ile185, Asp186|
 || Hydrogen bond | Lys67, Asp186 |Lys67|
 || Water bridge |Asp186, Phe187 ||
+| 5N2F| Hydrophobic |Ile54, Tyr56, Met115, Ala121 |Ile54, Tyr56, Met115, Ala121|
+|| Hydrogen bond | Phe19, Gln66 |Thr20, Gln66|
+|| Pi-pi stack |Tyr56|Tyr56|
