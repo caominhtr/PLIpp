@@ -4,7 +4,7 @@ import shutil
 import pandas as pd
 import numpy as np
 
-if len(sys.argv) < 2:
+if len(sys.argv) != 2:
     print("Please provide a file path as an argument.")
     sys.exit(1)
 
@@ -13,6 +13,7 @@ file_path = sys.argv[1]
 base_name = os.path.splitext(os.path.basename(file_path))[0]
 
 output_directory = base_name
+
 if not os.path.exists(output_directory):
     os.makedirs(output_directory)
 
@@ -100,6 +101,7 @@ def make_conect_file(input_file_path):
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
         return None
+    
 def read_csv_with_null(file_path, **kwargs):
     try:
         df = pd.read_csv(file_path, **kwargs)
@@ -122,10 +124,6 @@ def process_file(file_path):
     output_ligand_file_path = make_ligand_file(file_path_)
     output_water_file_path = make_water_file(file_path_)
     output_conect_file_path = make_conect_file(file_path_)
-
-    if None in [output_protein_file_path, output_ligand_file_path, output_water_file_path, output_conect_file_path]:
-        print("Error: One or more required files were not created.")
-        return None 
     
     try:
         df = read_csv_with_null('ligand.txt', sep=r'\s+', header=None)
@@ -149,13 +147,18 @@ def process_file(file_path):
                 list_check.append(df4.iloc[k][1])
     if len(list_check) > 0:
         print(f"Check the pdb file at the atom {list_check}")
+
     if df.shape[1] != 12:
-        split_col = df.iloc[:, 4].str.extract(r'([A-Z])(\d+)')
-        df.insert(5, 'Num', split_col[1])
-        df.iloc[:, 4] = split_col[0]
-        col_to_drop_ = [0, 8, 9]
-        df1 = df.drop(columns= col_to_drop_, axis = 1)
-        df1.columns = ['Order','Desc', 'Res', 'Chain', 'Num', 'X', 'Y', 'Z','Name']
+        try:
+            split_col = df.iloc[:, 4].str.extract(r'([A-Z])(\d+)')
+            df.insert(5, 'Num', split_col[1])
+            df.iloc[:, 4] = split_col[0]
+            col_to_drop_ = [0, 8, 9]
+            df1 = df.drop(columns= col_to_drop_, axis = 1)
+            df1.columns = ['Order','Desc', 'Res', 'Chain', 'Num', 'X', 'Y', 'Z','Name']
+        except:
+            print("Check the ligand file")
+            return None
     else:
         col_to_dropp = [0, 9, 10]
         df1 = df.drop(columns=col_to_dropp, axis=1)
@@ -163,14 +166,19 @@ def process_file(file_path):
 
     if df2.shape[1] != 12:
         print(f"Check the protein file")
+
     if df4 is not None:
         if df4.shape[1] != 12:
-            split_col = df4.iloc[:, 4].str.extract(r'([A-Z])(\d+)')
-            df4.insert(5, 'Num', split_col[1])
-            df4.iloc[:, 4] = split_col[0]
-            col_to_drop_ = [0, 8, 9]
-            df5 = df4.drop(columns= col_to_drop_, axis = 1)
-            df5.columns = ['Order','Desc', 'Res', 'Chain', 'Num', 'X', 'Y', 'Z','Name']
+            try:
+                split_col = df4.iloc[:, 4].str.extract(r'([A-Z])(\d+)')
+                df4.insert(5, 'Num', split_col[1])
+                df4.iloc[:, 4] = split_col[0]
+                col_to_drop_ = [0, 8, 9]
+                df5 = df4.drop(columns= col_to_drop_, axis = 1)
+                df5.columns = ['Order','Desc', 'Res', 'Chain', 'Num', 'X', 'Y', 'Z','Name']
+            except:
+                print("Check the water file")
+                return None
         else:
             col_to_dropp = [0, 9, 10]
             df5 = df4.drop(columns=col_to_dropp, axis=1)
@@ -183,14 +191,21 @@ def process_file(file_path):
     if df4 is None:
         df5 = pd.DataFrame(columns= ['Order', 'Desc', 'Res', 'Chain', 'Num', 'X', 'Y', 'Z', 'Name'])
     
-
-    if df1.Name.isna().any():
-        return None
-    elif df3.Name.isna().any():
-        return None
-
+    try:
+        if df1.Name.isna().any():
+            return None
+    except:
+        print('Check the protein file')
+    
+    try:
+        if df3.Name.isna().any():
+            return None
+    except:
+        print('Check the ligand file')
+        
     data_list = []
     list_new_indices = []
+
     try:
         with open('conect.txt', 'r') as file:
             for line in file:
@@ -204,7 +219,7 @@ def process_file(file_path):
 
     list_new = []
     for index in data_list:
-        if not any(i not in df1['Order'].values for i in index):
+        if all(i in df1['Order'].values for i in index):
             custom_order = {val: idx for idx, val in enumerate(index)}
             list_new.append(np.array(df1[df1['Order'].isin(custom_order)].sort_values(by='Order', key=lambda x: x.map(custom_order))['Name']))
             list_new_indices.append(data_list.index(index))
