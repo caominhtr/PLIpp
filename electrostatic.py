@@ -160,5 +160,5 @@ def electrostatics_interaction(protein, ligand):
 
     return df_result, df_pharmacophore
 
-print(electrostatics_interaction(df3, df1)[0])
-print(electrostatics_interaction(df3, df1)[1])
+# print(electrostatics_interaction(df3, df1)[0])
+# print(electrostatics_interaction(df3, df1)[1])
