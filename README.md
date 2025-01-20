@@ -109,3 +109,6 @@ Here are some geometric conditions for interactions between protein and ligands:
 || Electrostatic | |Asp144, Glu183, Glu184, Asp238, Asp297|
 || Water bridge |Phe294, Phe317 |Phe317|
 ||Metal complex |Zn, Asp144, Glu184, His322||
+| 2OBJ| Hydrophobic |Ala65, Ile104, Leu120, Leu174, Ile185, Asp186 |Val52, Ala65, Ile104, Leu120, Leu174, Ile185, Asp186|
+|| Hydrogen bond | Lys67, Asp186 |Lys67|
+|| Water bridge |Asp186, Phe187 ||
