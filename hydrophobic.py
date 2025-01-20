@@ -11,7 +11,7 @@ df1, df3, df5, data_list, list_new_indices, list_new = extractfile.process_file(
 
 def hydrophobic_interaction(protein, ligand):
 
-    list = [('CZ','TYR'), ('CG','TYR'), ('CG', 'ATYR'), ('CG', 'BTYR'),
+    list = [('CZ','TYR'), ('CZ', 'ATYR'), ('CZ', 'BTYR'),
             ('CB','SER'), ('CB', 'ASER'), ('CB', 'BSER'),
             ('CB','THR'), ('CB', 'ATHR'), ('CB', 'BTHR'),
             ('CB','CYS'), ('CB', 'ACYS'), ('CB', 'BCYS'),
