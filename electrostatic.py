@@ -71,7 +71,7 @@ def charge_ligand(ligand):
             list_sulfonium.append(data_list[list_new_indices[i_sulfonium]][0])
 
     for i_ammonium, arr_ammonium in enumerate(list_new):
-        if arr_ammonium[0] == 'N' and np.logical_or(len(arr_ammonium) == 5, len(arr_ammonium) == 4):
+        if arr_ammonium[0] == 'N' and np.logical_or(len(arr_ammonium) == 5, len(arr_ammonium) == 4) and np.all(arr_ammonium != 'H'):
             list_ammonium.append(data_list[list_new_indices[i_ammonium]][0])
 
     for i_guanidine, arr_guanidine in enumerate(list_new):
@@ -160,5 +160,5 @@ def electrostatics_interaction(protein, ligand):
 
     return df_result, df_pharmacophore
 
-# print(electrostatics_interaction(df3, df1)[0])
-# print(electrostatics_interaction(df3, df1)[1])
+print(electrostatics_interaction(df3, df1)[0])
+print(electrostatics_interaction(df3, df1)[1])
