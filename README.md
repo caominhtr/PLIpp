@@ -98,8 +98,7 @@ Here are some geometric conditions for interactions between protein and ligands:
 || Water bridge |Gln626, Ser633  |Ser633|
 | 3DY7| Hydrophobic | Leu118 |Leu118, Phe209|
 || Pi-pi stack | Phe209 (T-shaped) |Phe209 (T-shaped)|
-|| Hydrogen bond | Gly77, Asn78, Glu144 |Asn78, Gly80, Lys97, Met143, Glu144|
-||  | Met146, Ser150, Ser194 |Met146, Ser150, Lys192, Ser212|
+|| Hydrogen bond | Gly77, Asn78, Glu144, Met146, Ser150, Ser194 |Asn78, Gly80, Lys97, Met143, Glu144, Met146, Ser150, Lys192, Ser212|
 || Electrostatic |Lys97, Lys192 |Lys97, Lys192|
 || Halogen bond |Val127 |Val127|
 | 4MHY| Hydrophobic | Phe317 |Phe317|
