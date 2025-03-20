@@ -1,7 +1,7 @@
 
 # PLIpp - Protein Ligand Interactions python project
 
-This python project aims to predict the Interaction between protein and ligand based on their coordinates.
+This python project aims to predict the Interaction between protein and ligand based on their coordinates using only Pandas, Numpy, and Scipy library. This is my Python project from semester 1, Master 1 In silico Drug Design at Université Paris Cité, France
 
 
 
